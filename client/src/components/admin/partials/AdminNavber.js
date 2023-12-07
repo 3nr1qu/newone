@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 const AdminNavber = props => {
   const history = useHistory();
+  const location = useLocation();
 
   const logout = () => {
     localStorage.removeItem('userInfo');
@@ -45,6 +46,7 @@ const AdminNavber = props => {
         {/* Small Screen Show */}
         <div className="lg:hidden flex items-center">
           <svg
+          
             id="hamburgerBtn"
             className="lg:hidden w-8 h-8 cursor-pointer text-gray-600"
             fill="none"
@@ -67,7 +69,7 @@ const AdminNavber = props => {
         </div>
         {/* Both Screen show */}
         <div className="flex items-center">
-          <div
+          {/* <div
             className="hover:bg-gray-200 rounded-lg p-2 relative px-3"
             title="Notification">
             <svg
@@ -83,12 +85,18 @@ const AdminNavber = props => {
               />
             </svg>
             <span className="absolute top-0 ml-6 mt-1 bg-yellow-700 rounded px-1 text-white text-xs hover:text-gray-200 font-semibold">
-              1{/* {data.cartProduct !== null ? data.cartProduct.length : 0} */}
+              1{data.cartProduct !== null ? data.cartProduct.length : 0}
             </span>
-          </div>
+          </div> */}
           <div
-            className="hover:bg-gray-200 rounded-lg p-2 px-3 relative"
-            title="Messages">
+
+            title="Messages" 
+            onClick={e => history.push('/admin/messages')}
+          className={`${
+            location.pathname === '/admin/messages'
+              ? ''
+              : ''
+          } hover:bg-gray-200 rounded-lg p-2 px-3 relative`}>
             <svg
               className="cursor-pointer w-8 h-8 text-gray-600 hover:text-gray-800"
               fill="#000000"
@@ -100,9 +108,9 @@ const AdminNavber = props => {
               xmlns="http://www.w3.org/2000/svg">
               <path d="M21 7h-3c0-1.65-1.35-3-3-3h-12c-1.65 0-3 1.35-3 3v7c0 1.65 1.35 3 3 3v3l3-3c0 1.65 1.35 3 3 3h8l3 3v-3h1c1.65 0 3-1.35 3-3v-7c0-1.65-1.35-3-3-3zm-18 8c-.542 0-1-.458-1-1v-7c0-.542.458-1 1-1h12c.542 0 1 .458 1 1v1h-6.5c-1.379 0-2.5 1.121-2.5 2.5v4.5h-4zm19 2c0 .542-.458 1-1 1h-12c-.542 0-1-.458-1-1v-6.5c0-.827.673-1.5 1.5-1.5h11.5c.542 0 1 .458 1 1v7z" />
             </svg>
-            <span className="absolute top-0 ml-6 mt-1 bg-yellow-700 rounded px-1 text-white text-xs hover:text-gray-200 font-semibold">
-              1{/* {data.cartProduct !== null ? data.cartProduct.length : 0} */}
-            </span>
+            {/* <span className="absolute top-0 ml-6 mt-1 bg-yellow-700 rounded px-1 text-white text-xs hover:text-gray-200 font-semibold">
+              1{data.cartProduct !== null ? data.cartProduct.length : 0}
+            </span> */}
           </div>
           {/* Logout Button Dropdown */}
           <div

@@ -12,31 +12,6 @@ const AdminSidebar = props => {
         id="sidebar"
         className="hidden md:block sticky top-0 left-0 h-screen md:w-3/12 lg:w-2/12 sidebarShadow bg-white text-black-600">
         <div
-          onClick={e => history.push('/admin/messages')}
-          className={`${
-            location.pathname === '/admin/messages'
-              ? 'border-r-4 border-gray-800 bg-gray-100'
-              : ''
-          } hover:bg-gray-200 cursor-pointer flex flex-col items-center justify-center py-6`}>
-          <span>
-            <svg
-              className="w-8 h-8 text-black-600 hover:text-black-800"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
-            </svg>
-          </span>
-          <span className="hover:text-black-800">Messages</span>
-        </div>
-        <hr className="border-b border-gray-200" />
-        <div
           onClick={e => history.push('/admin/dashboard')}
           className={`${
             location.pathname === '/admin/dashboard'
